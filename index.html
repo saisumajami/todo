@@ -1,0 +1,174 @@
+<html lang="en">
+  <style>
+      body{
+    background: linear-gradient(rgba(1, 4, 34, 0.966),rgb(13, 13, 194),rgb(93, 238, 243),white);
+    background-size: cover;
+    height:100%;
+}
+.div1{
+    position: absolute;
+    top: 15%;
+    left:30%;
+    right:25%;
+    
+    background-color: white;
+    border-style: outset;
+    box-shadow: 4px 4px 20px black;
+
+}
+.div2{
+    height:15%;
+    background-color: rgb(5, 4, 53);
+    color: white;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 3%;
+    font-size: larger;
+}
+h1{
+    margin-top: 0px;
+    font-size: 300%;
+}
+.input{
+    
+    background-color: rgb(207, 202, 202);
+    border-color:rgba(203, 203, 209, 0.939);
+    margin-right: 4%;
+    position: relative;
+    left:4%;
+    height:50%;
+    width:80%;  
+    font-size: larger;
+    border-style: outset; 
+    margin-bottom: 3%;
+}
+.input:hover{
+    border-color:grey;
+}
+.but{
+    
+   font-size: larger;
+   height: 6%;
+    width:6%;
+    background-color: rgb(21, 7, 206);
+
+    
+}
+.but:hover{
+    border-color: teal;
+}
+ i{
+     color:rgb(252, 252, 249);
+     
+ }
+
+
+
+  </style>
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body id='body'>
+    <span class='div1' id='divi1'>
+       <div class='div2'><h1>Todo List...<i class="fa fa-hand-o-down"></i> <i class="fa fa-list"></i></h>
+        </div>
+         <div class='div3'><input type="text" id='input' class='input' placeholder="Add item....">
+         <button class='but' onclick="func()"><i class="fa fa-plus"></i></button></div>
+       <div id='divv'></div>
+         </span>
+    
+</body>
+<script>
+    function func(){
+        
+   var v=document.getElementById('input').value;
+   var tn=document.createElement("span");
+   tn.innerText=v;
+   tn.style.fontSize='x-large';
+   tn.style.color='blue';
+   //tn.style.position='relative';
+   //tn.style.left='3%';
+   //tn.style.height='5%';
+   tn.style.width='50%';
+   //tn.style.marginRight='0px';
+
+
+  // tn.style.marginRight='3%';
+  // tn.style.top='%';
+  var up=document.createElement('button');
+  up.innerHTML="edit";
+  var de=document.createElement('button');
+  de.innerHTML="del";
+  var br=document.createElement('br');
+  up.style.float='right';
+  up.style.marginLeft='2%';
+  de.style.float='right';
+  var app=document.createElement('div');
+  app.setAttribute('id','app');
+  
+
+
+
+
+ if(v.trim()==''){
+     alert("you haven't entered anything");
+     return false;
+ }
+ up.style.backgroundColor='yellow';
+ de.style.backgroundColor='red';
+
+   var cb=document.createElement('input');
+   cb.type='checkbox';
+
+
+
+   app.appendChild(cb);
+   app.appendChild(tn);
+;
+   app.appendChild(up);
+
+   app.appendChild(de);
+
+console.log(app);
+   document.getElementById('divv').appendChild(app);
+  // document.getElementById('divi4').appendChild(tn);
+  // document.getElementById('divi4').appendChild(up);
+  // document.getElementById('divi4').appendChild(de);
+   //document.getElementById('divi4').appendChild(br);
+
+   up.onclick=update;
+     function update(){
+        var value=prompt('update the item as');
+        if(value.trim()==''){
+            return false;
+        }
+        tn.innerText=value;
+         
+     }
+     de.onclick=deletee;
+     function deletee(){
+       // cb.remove();
+       //tn.remove();
+        ////de.remove();
+        //up.remove();
+        document.getElementById('app').remove();
+        divii.removeChild(cb);
+        divii.removeChild(tn);
+        divii.removeChild(up);
+        
+        
+        divii.removeChild(de);
+
+     }
+   
+
+document.getElementById('input').value=null;
+
+    }
+
+</script>
+</html>
